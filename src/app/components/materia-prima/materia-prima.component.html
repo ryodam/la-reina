@@ -1,0 +1,115 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Recepción de maeria prima</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-form-field class="example-full-width">
+            <mat-label>Fecha</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Presentación</mat-label>
+            <select matNativeControl required>
+                <option value="volvo">Granel</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Placa Vehículo</mat-label>
+            <input matInput placeholder="Placa">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Producto</mat-label>
+            <input matInput placeholder="Producto">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Variedad</mat-label>
+            <input matInput placeholder="Variedad">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Proced</mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre Conductor</mat-label>
+            <input matInput placeholder="Nombre">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Identificación conductor</mat-label>
+            <input matInput placeholder="Identificación">
+        </mat-form-field>
+        <br>
+        <div class="title-center">
+            <h3>Analisís físico</h3>
+            <h3>Muestra de 250 gr</h3>
+        </div>
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 form-table">
+
+            <ng-container matColumnDef="item">
+                <th mat-header-cell *matHeaderCellDef> Item </th>
+                <td mat-cell *matCellDef="let element"> {{element.item}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="rango">
+                <th mat-header-cell *matHeaderCellDef> Rango: Humedo </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field>
+                        <input matInput placeholder="rango humedo">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="muestra1">
+                <th mat-header-cell *matHeaderCellDef> Muestra #1 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field>
+                        <input matInput placeholder="Muestra #1">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="muestra2">
+                <th mat-header-cell *matHeaderCellDef> Muestra #2 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field>
+                        <input matInput placeholder="Muestra #2">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="muestra3">
+                <th mat-header-cell *matHeaderCellDef> Muestra #3 </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field>
+                        <input matInput placeholder="Muestra #3">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="promedio">
+                <th mat-header-cell *matHeaderCellDef> Promedio </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field>
+                        <input matInput placeholder="Promedio">
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <h3>Resultado verificación</h3>
+        <mat-radio-button value="1">Aceptado</mat-radio-button>
+        <mat-radio-button value="1">Reachazado</mat-radio-button>
+
+    </mat-card-content>
+    <mat-card-actions>
+            <button mat-raised-button color="primary">Salvar</button>
+            <button mat-raised-button color="primary">Imprimir</button>
+    </mat-card-actions>
+</mat-card>
